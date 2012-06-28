@@ -2,6 +2,7 @@
 # Create a Ruby class 
 # which behaves exactly like an array but will store only numbers, 
 # will store them in the order they were added and when adding new elements will ignore any duplicates. 
+
 # In this way it functions like a Ruby hash object in that each key has to be unique.
 
 # Here's an example:
@@ -22,17 +23,17 @@
 
 class UniqueArray
 	
-	# def initialize(numbers=nil)
-	# 	@numbers = numbers
-	# 	p @numbers.uniq! if numbers != nil 
-	# end
-	
-	def initialize(numbers=nil)
-		@numbers = numbers
-		@numbers.each {|word| word.delete!(/a-z/.to_s)}
-		@numbers.reject! { |quotes| quotes.empty? }
-		p @numbers
-	end
-	
-end
 
+	def initialize(input=nil)
+		
+		if input == nil
+		else
+			numbers = input
+			numbers.select!{ |x| x.is_a? Integer }
+			p numbers.uniq! 					
+		end
+	end
+end
+UniqueArray.new(["a", "b"]) 
+UniqueArray.new([1,2,0,6,2,11]) 
+UniqueArray.new() 
