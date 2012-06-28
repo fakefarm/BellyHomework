@@ -22,9 +22,16 @@
 
 class UniqueArray
 	
+	# def initialize(numbers=nil)
+	# 	@numbers = numbers
+	# 	p @numbers.uniq! if numbers != nil 
+	# end
+	
 	def initialize(numbers=nil)
 		@numbers = numbers
-		p @numbers.uniq! if numbers != nil 
+		@numbers.each {|word| word.delete!(/a-z/.to_s)}
+		@numbers.reject! { |quotes| quotes.empty? }
+		p @numbers
 	end
 	
 end
