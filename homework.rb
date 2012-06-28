@@ -20,4 +20,12 @@
 # => [1,2,0,6,11]
 # Submit your ruby file containing the class you wrote. Also submit a test file which demonstrates how your class functions. You'll get bonus points if your test file uses the rSpec testing framework! ;)
 
+class UniqueArray
+	
+	def initialize(numbers=nil)
+		@numbers = numbers
+		p @numbers.uniq! if numbers != nil 
+	end
+	
+end
 
