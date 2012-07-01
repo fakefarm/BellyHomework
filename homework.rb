@@ -22,18 +22,33 @@
 # Submit your ruby file containing the class you wrote. Also submit a test file which demonstrates how your class functions. You'll get bonus points if your test file uses the rSpec testing framework! ;)
 
 class UniqueArray
-	
 
 	def initialize(input=nil)
-		
 		if input == nil
+			@added = []
 		else
-			numbers = input
-			numbers.select!{ |x| x.is_a? Integer }
-			p numbers.uniq! 					
+			@numbers = input
+			@numbers.select!{ |x| x.is_a? Integer }
+			p @numbers.uniq! 					
 		end
 	end
+		
+	def add(item)
+		@added << item
+		@added.select!{ |x| x.is_a? Integer }
+		@added.uniq!	
+	end
+	
+	def to_s
+ 		@added.inspect
+	end
+	
 end
-UniqueArray.new(["a", "b"]) 
-UniqueArray.new([1,2,0,6,2,11]) 
-UniqueArray.new() 
+
+m = UniqueArray.new()
+
+[1,2,0,6,"a",3,3,3,11].each do |new_element|
+  m.add(new_element)
+end
+
+puts m
